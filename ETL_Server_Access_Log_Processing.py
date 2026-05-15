@@ -28,13 +28,13 @@ dag = DAG(
 # create the download task
 download = BashOperator(
     task_id='download',
-    bash_command='wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Apache%20Airflow/Build%20a%20DAG%20using%20Airflow/web-server-access-log.txt > myfile.txt',
-    dag = dag‚
+    bash_command='wget "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Apache%20Airflow/Build%20a%20DAG%20using%20Airflow/web-server-access-log.txt"',
+    dag = dag,
 )
 # create the extract task
 extract = BashOperator(
     task_id='extract',
-    bash_command='cut -d"#" -f1,4 myfile.txt > visitorid.txt',
+    bash_command='cut -d"#" -f1,4 web-server-access-log.txt > visitorid.txt',
     dag=dag,
 )
 # create the transform task
